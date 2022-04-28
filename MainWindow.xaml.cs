@@ -42,6 +42,7 @@ namespace TeleCom
         private void Btvhod_Click(object sender, RoutedEventArgs e)
         {
             if (Tbkod.Text == code && is_login_timeout != false) MessageBox.Show("Успешная авторизация!");
+            if (Tbkod.Text == cod && is_login_timeout != false) MessageBox.Show("Успешная авторизация!");
         }
 
         //Ввод номера
@@ -55,12 +56,17 @@ namespace TeleCom
         public static string code = "";
         private void Window_KeyUp(object sender, KeyEventArgs e)
         {
-            if (new BD.DemoBKEntities().ТехПерсонал.FirstOrDefault(i => i.Пароль == Tbpassword.Text.Trim()) != null && e.Key == Key.Enter)
-            {
+                if (new BD.DemoBKEntities().ТехПерсонал.FirstOrDefault(i => i.Пароль == Tbpassword.Text.Trim()) != null && e.Key == Key.Enter)
+                {
                 code = Generate_Code(8);
                 MessageBox.Show(code);
                 Async_Method();
-            } 
+                } 
+                else if (new BD.DemoBKEntities().ТехПерсонал.FirstOrDefault(i => i.Пароль == Tbpassword.Text.Trim()) == null && e.Key == Key.Enter)
+            {
+                MessageBox.Show("Ашепка!");
+            }
+            
         }
 
         //поле для хранения логического значения
@@ -72,6 +78,24 @@ namespace TeleCom
                await Task.Delay(1000);
             }
             is_login_timeout = false;
+        }
+
+        public static string cod = "";
+        private void TbObnovit_Click(object sender, RoutedEventArgs e)
+        {
+            if(new BD.DemoBKEntities().ТехПерсонал.FirstOrDefault(i => i.Пароль == Tbpassword.Text.Trim()) != null)
+            {
+                cod = Generate_Code(8);
+                MessageBox.Show(cod);
+                Async_Method();
+            }
+        }
+
+        private void Btotmena_Click(object sender, RoutedEventArgs e)
+        {
+            TbNomer.Clear();
+            Tbpassword.Clear();
+            Tbkod.Clear();
         }
     }
 }
