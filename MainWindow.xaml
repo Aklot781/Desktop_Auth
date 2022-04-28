@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeleCom"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" KeyUp="Window_KeyUp">
     <Grid>
-        
+        <Label Content="Телеком Нева Связь" HorizontalAlignment="Left"  Margin="100,60,0,0" VerticalAlignment="Top" Width="258" FontSize="24" Height="40"/>
+        <TextBox Name="TbNomer" HorizontalAlignment="Left" Height="23" Margin="333,191,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="207" FontSize="14" TextChanged="TbNomer_TextChanged"/>
+        <Label Content="Номер" HorizontalAlignment="Left"  Margin="263,186,0,0" VerticalAlignment="Top" Width="62" FontSize="16"/>
+        <Label Content="Пароль" HorizontalAlignment="Left"  Margin="263,236,0,0" VerticalAlignment="Top" Width="68" FontSize="16"/>
+        <Label Content="Код" HorizontalAlignment="Left"  Margin="263,286,0,0" VerticalAlignment="Top" Width="62" FontSize="16"/>
+        <TextBox Name="Tbpassword" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="333,241,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="207" FontSize="14"/>
+        <TextBox Name="Tbkod" HorizontalAlignment="Left" Height="23" Margin="333,291,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="149" FontSize="14"/>
+        <Image HorizontalAlignment="Left" Height="255" Margin="548,0,-1,0" VerticalAlignment="Top" Width="245" Source="Лого ТНС.jpg"/>
+        <Button Name="Btotmena" Content="Отмена" HorizontalAlignment="Left" Margin="333,374,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Name="Btvhod" Content="Вход" HorizontalAlignment="Left" Margin="460,374,0,0" VerticalAlignment="Top" Width="75" Click="Btvhod_Click"/>
+        <Image HorizontalAlignment="Left" Height="34" Margin="493,281,0,0" VerticalAlignment="Top" Width="36" Source="На авторизацию_Обновление кода.jpg"/>
+
     </Grid>
 </Window>
